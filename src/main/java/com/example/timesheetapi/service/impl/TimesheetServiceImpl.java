@@ -7,8 +7,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.example.timesheetapi.controller.TimesheetController;
 import com.example.timesheetapi.model.Status;
+import com.example.timesheetapi.model.Timesheet;
+import com.example.timesheetapi.model.User;
+import com.example.timesheetapi.repositories.StatusRepo;
+import com.example.timesheetapi.repositories.TimesheetRepo;
+import com.example.timesheetapi.repositories.UserRepo;
 import com.example.timesheetapi.service.TimesheetService;
 
 import lombok.Getter;
@@ -18,42 +22,54 @@ import lombok.Setter;
 @Getter @Setter
 public class TimesheetServiceImpl implements TimesheetService {
 	private static final Logger LOGGER = LoggerFactory.getLogger(TimesheetServiceImpl.class);
+	
+	private TimesheetRepo timesheetRepo;
+	
+	private UserRepo userRepo;
+	
+	private StatusRepo statusRepo;
+	
+	
+	
+	public TimesheetServiceImpl(StatusRepo statusRepo) {
+		super();
+		this.statusRepo = statusRepo;
+	}
 
-	
-	
-	public List<?> listAllTimesheet (Map<String, Object> filters) throws Exception {
-		return null;		
+	public List<?> listAllTimesheet () throws Exception {
+		return timesheetRepo.findAll();		
 	}
 	
-	public Object addTimesheet (Map<String, Object> filters) throws Exception {
-		return null;		
+	public void addTimesheet (Timesheet timesheet) throws Exception {
+		timesheetRepo.save(timesheet);		
 	}
 	
-	public Object editTimesheet (Map<String, Object> filters) throws Exception {
-		return null;		
+	public void editTimesheet (Long timesheetId) throws Exception {
+		timesheetRepo.save(null);		
 	}
 	
-	public Object deleteTimesheet (Map<String, Object> filters) throws Exception {
-		return null;		
+	public void deleteTimesheet (Long timesheetId) throws Exception {
+		timesheetRepo.deleteById(timesheetId);
 	}
 	
 	public Object getUser (Map<String, Object> filters) throws Exception {
 		Object result = null;
 		
-		Status status = new Status();
+		User user = new User();
 		
-		status.setId(1L);
-		status.setStatus("Open");
-		
-		LOGGER.debug("Check Status Value: {}",status);
-		
-		result = status;		
+		result = userRepo.findAll();	
 		
 		return result;		
 	}
 	
 	public Object getStatus (Map<String, Object> filters) throws Exception {
-		return null;		
+		Object result = null;
+		
+		Status status = new Status();
+		
+		result = statusRepo.findAll();	
+		
+		return result;		
 	}
 
 }

@@ -3,15 +3,17 @@ package com.example.timesheetapi.service;
 import java.util.List;
 import java.util.Map;
 
+import com.example.timesheetapi.model.Timesheet;
+
 public interface TimesheetService {
 	
-	public List<?> listAllTimesheet (Map<String, Object> filters) throws Exception;
+	public List<?> listAllTimesheet () throws Exception;
 	
-	public Object addTimesheet (Map<String, Object> filters) throws Exception;
+	public void addTimesheet (Timesheet timesheet) throws Exception;
 	
-	public Object editTimesheet (Map<String, Object> filters) throws Exception;
+	public void editTimesheet (Long timesheetId) throws Exception;
 	
-	public Object deleteTimesheet (Map<String, Object> filters) throws Exception;
+	public void deleteTimesheet (Long timesheetId) throws Exception;
 	
 	public Object getUser (Map<String, Object> filters) throws Exception;
 	
