@@ -1,43 +1,31 @@
 package com.timesheet.restapi.model;
 
-import java.io.Serializable;
-import java.time.LocalDate;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serial;
+import java.io.Serializable;
+import java.time.LocalDate;
+
 @MappedSuperclass
 @NoArgsConstructor
-@Getter @Setter
-public class BaseModel implements Serializable{
-	
-	private static final long serialVersionUID = 1L;
-	
-	@Column(name = "`value`")
-    private String value;
-	
-	@Column(name = "`desc`")
-    private String desc;
-	
-    @Column(name = "name")
-    private String name;
-    
+@Getter
+@Setter
+public class BaseModel implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
+
     @Column(name = "created_at")
-	private LocalDate createdAt;
-    
-    @Column(name = "created_by")
-	private Long createdBy;
-	
+    private LocalDate createdAt;
+
     @Column(name = "updated_at")
-	private LocalDate updatedAt;
-	
-    @Column(name = "updated_by")
-	private Long updatedBy;
-    
+    private LocalDate updatedAt;
+
     @Column(name = "is_deleted")
-	private Boolean isDeleted;
+    private Boolean isDeleted;
 
 }

@@ -1,29 +1,28 @@
 package com.timesheet.restapi.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serial;
+
 @Entity
-@Table(schema = "timesheetdb", name = "Status")
+@Table(schema = "timesheetdb", name = "status")
 @NoArgsConstructor
-@Getter @Setter
+@Getter
+@Setter
 public class Status extends BaseModel {
-	
-	private static final long serialVersionUID = 1L;
-	
-	@Id
+
+    @Serial
+    private static final long serialVersionUID = 1L;
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "status_id")
-	private Long statusId;
-	
-	@Column(name = "status")
-	private String status;
+    @Column(name = "status_id")
+    private Long statusId;
+
+    @Column(name = "status")
+    private String status;
 
 }
