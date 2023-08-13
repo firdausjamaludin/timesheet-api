@@ -1,4 +1,4 @@
-package com.example.timesheetapi.service.impl;
+package com.timesheet.restapi.service.impl;
 
 import java.util.List;
 import java.util.Map;
@@ -7,21 +7,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.example.timesheetapi.model.Status;
-import com.example.timesheetapi.model.Timesheet;
-import com.example.timesheetapi.model.User;
-import com.example.timesheetapi.repositories.StatusRepo;
-import com.example.timesheetapi.repositories.TimesheetRepo;
-import com.example.timesheetapi.repositories.UserRepo;
-import com.example.timesheetapi.service.TimesheetService;
+import com.timesheet.restapi.model.Status;
+import com.timesheet.restapi.model.Timesheet;
+import com.timesheet.restapi.model.User;
+import com.timesheet.restapi.repositories.StatusRepo;
+import com.timesheet.restapi.repositories.TimesheetRepo;
+import com.timesheet.restapi.repositories.UserRepo;
+import com.timesheet.restapi.service.RestApiService;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Service
 @Getter @Setter
-public class TimesheetServiceImpl implements TimesheetService {
-	private static final Logger LOGGER = LoggerFactory.getLogger(TimesheetServiceImpl.class);
+public class RestApiServiceImpl implements RestApiService {
+	private static final Logger LOGGER = LoggerFactory.getLogger(RestApiServiceImpl.class);
 	
 	private TimesheetRepo timesheetRepo;
 	
@@ -31,7 +31,7 @@ public class TimesheetServiceImpl implements TimesheetService {
 	
 	
 	
-	public TimesheetServiceImpl(StatusRepo statusRepo) {
+	public RestApiServiceImpl(StatusRepo statusRepo) {
 		super();
 		this.statusRepo = statusRepo;
 	}

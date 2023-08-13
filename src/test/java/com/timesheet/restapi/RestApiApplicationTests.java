@@ -1,10 +1,10 @@
-package com.example.timesheetapi;
+package com.timesheet.restapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TimesheetApiApplicationTests {
+class RestApiApplicationTests {
 
 	@Test
 	void contextLoads() {

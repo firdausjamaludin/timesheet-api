@@ -1,11 +1,11 @@
-package com.example.timesheetapi.service;
+package com.timesheet.restapi.service;
 
 import java.util.List;
 import java.util.Map;
 
-import com.example.timesheetapi.model.Timesheet;
+import com.timesheet.restapi.model.Timesheet;
 
-public interface TimesheetService {
+public interface RestApiService {
 	
 	public List<?> listAllTimesheet () throws Exception;
 	

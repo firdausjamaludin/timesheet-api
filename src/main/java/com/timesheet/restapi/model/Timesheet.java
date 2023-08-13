@@ -1,4 +1,6 @@
-package com.example.timesheetapi.model;
+package com.timesheet.restapi.model;
+
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,19 +13,34 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(schema = "timesheetdb", name = "user")
+@Table(schema = "timesheetdb", name = "timesheet")
 @NoArgsConstructor
 @Getter @Setter
-public class User extends BaseModel {
+public class Timesheet extends BaseModel {
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "timesheet_id")
+	private Long timesheetId;
+	
 	@Column(name = "user_id")
 	private Long userId;
 	
-	@Column(name = "user")
-	private String user;
-
+	@Column(name = "status_id")
+	private Long statusId;
+	
+	@Column(name = "project")
+	private String project;
+	
+	@Column(name = "task")
+	private String task;
+	
+	@Column(name = "start_at")
+	private LocalDate startedAt;
+	
+	@Column(name = "end_at")
+	private LocalDate finishAt;
+	
 }

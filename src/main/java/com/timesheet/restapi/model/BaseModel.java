@@ -1,4 +1,4 @@
-package com.example.timesheetapi.model;
+package com.timesheet.restapi.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
