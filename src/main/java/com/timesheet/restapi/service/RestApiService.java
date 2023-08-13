@@ -8,4 +8,6 @@ public interface RestApiService {
 	
 	List<Timesheet> listAllTimesheet() throws Exception;
 
+	List<Timesheet> listByTask(String task) throws Exception;
+
 }
