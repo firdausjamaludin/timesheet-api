@@ -10,4 +10,10 @@ public interface RestApiService {
 
 	List<Timesheet> listByTask(String task) throws Exception;
 
+	Timesheet createTimesheet(Timesheet newTimesheet) throws Exception;
+
+	Timesheet updateTimesheet(Long id, Timesheet updatedTimesheet) throws Exception;
+
+	void deleteTimesheet(Long timesheetId) throws Exception;
+
 }

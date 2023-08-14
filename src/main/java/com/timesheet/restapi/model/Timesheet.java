@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serial;
-import java.time.LocalDate;
 
 @Entity
 @Table(schema = "timesheetdb", name = "timesheet")
@@ -30,10 +29,10 @@ public class Timesheet extends BaseModel {
     private String task;
 
     @Column(name = "start_date")
-    private LocalDate startDate;
+    private String startDate;
 
     @Column(name = "due_date")
-    private LocalDate dueDate;
+    private String dueDate;
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")

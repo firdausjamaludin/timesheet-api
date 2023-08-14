@@ -10,6 +10,7 @@ import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -50,5 +51,30 @@ public class RestApiServiceImpl implements RestApiService {
     public List<Timesheet> listByTask(String task) throws Exception {
         List<Timesheet> result = timesheetRepo.findAllByTaskContainingIgnoreCase(task);
         return result != null && !result.isEmpty() ? result : Collections.emptyList();
+    }
+
+    public Timesheet createTimesheet(Timesheet newTimesheet) throws Exception {
+        return timesheetRepo.save(newTimesheet);
+    }
+
+    public Timesheet updateTimesheet(Long id, Timesheet updatedTimesheet) throws Exception{
+        Timesheet existingTimesheet = timesheetRepo.findById(id)
+                .orElseThrow(ChangeSetPersister.NotFoundException::new);
+
+        existingTimesheet.setProject(updatedTimesheet.getProject());
+        existingTimesheet.setTask(updatedTimesheet.getTask());
+        existingTimesheet.setStartDate(updatedTimesheet.getStartDate());
+        existingTimesheet.setDueDate(updatedTimesheet.getDueDate());
+        existingTimesheet.setUser(updatedTimesheet.getUser());
+        existingTimesheet.setStatus(updatedTimesheet.getStatus());
+
+        return timesheetRepo.save(existingTimesheet);
+    }
+
+    public void deleteTimesheet(Long timesheetId) throws Exception {
+        Timesheet existingTimesheet = timesheetRepo.findById(timesheetId)
+                .orElseThrow(ChangeSetPersister.NotFoundException::new);
+
+        timesheetRepo.delete(existingTimesheet);
     }
 }
