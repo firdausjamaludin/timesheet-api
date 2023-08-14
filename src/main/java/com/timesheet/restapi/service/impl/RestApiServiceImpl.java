@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -47,14 +48,7 @@ public class RestApiServiceImpl implements RestApiService {
 
     @Override
     public List<Timesheet> listByTask(String task) throws Exception {
-
         List<Timesheet> result = timesheetRepo.findAllByTaskContainingIgnoreCase(task);
-
-        if (result == null || result.isEmpty()) {
-            throw new Exception("No result found");
-        }
-
-        return result;
+        return result != null && !result.isEmpty() ? result : Collections.emptyList();
     }
-
 }
