@@ -19,13 +19,13 @@ public class BaseModel implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "created_at")
-    private LocalDate createdAt;
-
-    @Column(name = "updated_at")
-    private LocalDate updatedAt;
-
-    @Column(name = "is_deleted")
-    private Boolean isDeleted;
+//    @Column(name = "created_at")
+//    private LocalDate createdAt;
+//
+//    @Column(name = "updated_at")
+//    private LocalDate updatedAt;
+//
+//    @Column(name = "is_deleted")
+//    private Boolean isDeleted;
 
 }

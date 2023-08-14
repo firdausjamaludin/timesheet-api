@@ -39,7 +39,7 @@ public class RestApiController {
         return restApiService.listByTask(taskValue);
     }
 
-    @PostMapping("/timesheets")
+    @PostMapping("/createTimesheets")
     public ResponseEntity<Timesheet> createTimesheet(@RequestBody Timesheet newTimesheet) {
         try {
             Timesheet createdTimesheet = restApiService.createTimesheet(newTimesheet);
@@ -49,7 +49,8 @@ public class RestApiController {
         }
     }
 
-    @PutMapping("/timesheets/{timesheetId}")
+    @CrossOrigin
+    @PutMapping("/editTimesheets/{timesheetId}")
     public ResponseEntity<Timesheet> updateTimesheet(@PathVariable Long timesheetId, @RequestBody Timesheet updatedTimesheet) {
         try {
             Timesheet updatedTimesheetResult = restApiService.updateTimesheet(timesheetId, updatedTimesheet);
@@ -61,7 +62,7 @@ public class RestApiController {
         }
     }
 
-    @DeleteMapping("/timesheets/{timesheetId}")
+    @DeleteMapping("/deleteTimesheets/{timesheetId}")
     public ResponseEntity<Void> deleteTimesheet(@PathVariable Long timesheetId) {
         try {
             restApiService.deleteTimesheet(timesheetId);
