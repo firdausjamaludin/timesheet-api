@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping(path = "api/timesheet")
 public class RestApiController {
@@ -49,7 +49,7 @@ public class RestApiController {
         }
     }
 
-    @CrossOrigin
+    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/editTimesheets/{timesheetId}")
     public ResponseEntity<Timesheet> updateTimesheet(@PathVariable Long timesheetId, @RequestBody Timesheet updatedTimesheet) {
         try {
