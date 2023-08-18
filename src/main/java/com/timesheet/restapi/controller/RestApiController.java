@@ -49,7 +49,6 @@ public class RestApiController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @PutMapping("/editTimesheets/{timesheetId}")
     public ResponseEntity<Timesheet> updateTimesheet(@PathVariable Long timesheetId, @RequestBody Timesheet updatedTimesheet) {
         try {
